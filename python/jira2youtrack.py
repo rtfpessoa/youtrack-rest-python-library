@@ -75,7 +75,10 @@ def create_yt_issue_from_jira_issue(target, issue, project_id):
 
 
 def process_labels(target, issue):
-    tags = issue['fields']['labels']
+    try:
+        tags = issue['fields']['labels']
+    except:
+        tags = []
     for tag in tags:
     #        tag = tag.replace(' ', '_')
     #        tag = tag.replace('-', '_')
